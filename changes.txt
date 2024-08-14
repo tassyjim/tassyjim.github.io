@@ -1,0 +1,314 @@
+' Welcome to MMEdit5 kw\txt
+Changes:
+V5.2.9
+Jun 2024
+Various bug fixes to MMCC
+MMCC now stores devices types in inf file allowing future new devices without recompiling main program.
+MMCC action with backspace changed to match TeraTerm. Required for long line editing.
+
+V5.2.8
+April 2024
+New: Option to auto-add closing brackets
+Option to warn of any unmatched bracketsNew Format highlights lines with unmatched brackets.
+Bracket pairs highlighted
+
+V5.2.7
+Mar 2024
+Fixed rare bug in MMCC which caused instant shutdown
+Aborting AUTOSAVE now easier.
+Optional use line delay during AUTOSAVE instead of waiting for end of line as confirmation.
+New in MMEdit - visible markers for unsaved changes to code.
+New in MMEdit - Save as PDF
+HTML and RTF colours now match editor colours. (configurable)
+keyboard shortcuts F4 go to sub, F5 return from sub, ctrl+B toggle bookmark
+Various cosmetic and speed improvements
+scintilla.dll not longer required for Windows versions
+
+V5.2.6
+16 Dec 2023
+Windows DLL hijacking vunerability addressed.
+MMCC defaults to "Lite" mode, hiding all but one toolbar.
+File transfers were trying to usse TFTP for all TCPIP connections, not just WEBmite.
+Various small cosmetic improvements
+
+V5.2.5
+13 Nov 2023
+Fixed File Manager problem sending mutiple files from slow SDcards to PC
+Bookmarks are now saved for recent files and option to save them in the BAS file
+armite keyword files remamed to ARMmite
+Old keyword files removed from data folder (once only)
+
+V5.2.4
+5 Nov 2023
+Changes to code folding. F9 now reverts folding to last saved. F10 toggles folding
+Option in preferences to store folding in BAS file to allow editing on other platforms.
+
+V5.2.3
+1 Nov 2023
+'WordWrap' can now be changed in the preferences dialog.
+'Use spaces for Tabs' can now be changed in Preferences.
+New options in 'Search' to skip strings and comments
+Improvements to text selection in MMCC
+ZIP archives can be extracted and transfered in one operation in File Manager
+Various small cosmetic improvements
+
+V5.2.2
+13 Oct 2023
+Fixed bugs with user variable highlighting.
+Fixed bugs when files use TAB instead of space characters.
+More improvements and bug fixes with XMODEM file transfers
+TFTP is now internal - no need to instal an external program.
+
+V5.2.1
+
+4 Oct 2023
+Fixed issue with selecting output in MMCC.
+Changed tkn files to include true keywords and paramaters in one file. Added multi-word phrases to autocomplete.
+Improved changing tabs in editor.
+Vast improvement in XMODEM transfer speeds.
+
+V5.2.0 beta
+
+13 Aug 2023
+This is a major update behind the scenes.
+The latest PureBasic update includes a newer version of Scintilla, the framework that handles all the editor features.
+This update fixes two long-standing issues. The option to select Propper case now works. You can choose between UPPERCASE, lowercase or Propper Case for the keyword display. This is only cosmetic and serves no useful purpose as far as MMBasic is concerned.
+In Linux, the syntax help (F1) now appears the same as in the Windows version. The status line hint is still there and remains on display until you move to a new line.
+This Scintilla update also created a problem - random crashes which the debugger couldn't identify. The cause has since been identified and (hopefully) remedied.
+This was a blessing in disguise as it encouraged me to change the way multiple open files are handled. Instead of one editor and switching between files, MMEdit now opens multiple editors and simply hides the ones not currently active. This is much faster to switch tabs and does a better job of returning to the previous tab with all things retained, including undo-redo etc.
+You are restricted to 15 open files but this can be changed with a setting in the inf file. The more files you have open, the slower it is to load them and processes such as ‘backup’ will also take longer. Too many open files is not a good idea.
+Other changes
+User variables are now colour-coded and in autocomplete (provided OPTION EXPLICIT is used). If you don't like this, change the colour of user-variables to black.
+To make it look like you are organised and a proficient typist, there is a new option in the Program menu. "Cleanup labels" will scan the code and change the case of all user variables and sub names to match the case used in the definition line.
+Files which are in the MRU list or restored on startup will have their cursor position and any code folding remembered.
+Timed backups are finally functional.
+Provided you have configured the backup folder and set a backup time (in minutes), backup will occur. Backups are created if the original file has changed since the last save or backup. All open files are checked, not just the current file. It is up to you to decide if you will risk having all the bas files and the backups reside on the same drive.
+Undo/redo is no longer reset when doing upload/deploy. It is still reset during normal 'save'
+The editor line and character count is now updated every 3 seconds rather than when entering a new line.
+Support provided for TinyBasic as used on the ATTiny85. See the tutorial in the MMEdit help.
+
+MM Control Centre changes.
+Ther have been significant changes in the File Manager.
+The PC file listing is the same as before. Speed of loading a new folder list is much faster than previous versions but there can still be noticeable delays.
+If you select a directory using the "Change" button above the listing, the new folder is remembered in a "Recent folders" list. Up to 10 folders are remembered. This list is saved between sessions.
+Changing folders within the file listing by clicking on folder names is not remembered other than the current folder when the file manager is shut down.
+You can now use the delete key (as well as the Delete button) to delete files on the PC or 'mite.
+In order to allow suspect CH340 chips to function in Windows, the serial port is opened at 2400 baud and then changed to the required rate while the port is open. This feature can be disabled in MMCC.inf.
+
+There have been a number of minor bug fixes and cosmetic changes.
+
+V5.1.7
+12 Jun 2023
+Bugfix
+
+V5.1.6
+8 Jun 2023
+Fixed problem with editor tab items not displaying correctly.
+Fixed MMCC problems with listing large files.
+Added "Presets" to MMCC menu to allow for 30 devices, up for the 12 buttons.
+
+V5.1.5
+Big improvment in speed of listing PC files in File Manager.
+MMB4W can now be closed before running new BAS file (additional batch file and quit_mmbasic.exe)
+Various improvements to GUI design feature.
+
+V5.1.4
+20 May 2023
+Added Colour picker to MMEdit
+Added GUI design support.
+
+V5.1.3
+In MMCC, if Auto Configure is set, the device is queried and the device type in MMCC set to match the actual device.
+Fixed bugs when in Telnet session.
+Added option to use true keyword list or keywords+parameters.
+Keyword lists updated.
+Listing long programs was overflowing serial buffer - fixed.
+'Store' implemented. It can be used for Include files and commonly used sources. Saves time navigating to it.
+
+26 Apr 2023
+V5.1.2
+When sending code from MMEdit to MMCC, MMCC becomes active immediately.
+F12 in MMEdit and MMCC opens up a list of relevant commands ready to insert into your code or, in MMCC, the one line code entry box.
+
+6 Apr 2023
+V5.1.1
+Support added for picomite Library in File Manager
+mmc script file process changed. Now line-by-line instead of delays.
+Fixed bug with minimised windows not restoring on next program start.
+
+24 Mar 2023
+V5.1.0
+Some colour added to messages in MMCC
+Option to timestamp lines in MMCC
+Option to use TFTP instead of XMODEM when connected by TCP to PicoWEB
+Debug logging in MMCC
+MMCC recognises some Telnet directives
+
+ Mar 2023
+V5.0.5
+Editor has column marker (adjustable) and comment wordwrap
+^Q unwrapps lines that were split during transfer from device.
+MMCC now has auto-reconnect to serial ports.
+MMCC now has wordwrap
+When entering File Manager, the device time is set to computer time
+
+2 Feb 2023
+V5.0.4
+Prefill and postfill added to Editor
+'Uncrunch' added to editor
+Highlighting of numbers in editor improved.
+Include file and Add INCLUDE directive added to right-click menu
+Sub menu under 'Action' added for MMReplace - makes setup easier.
+Wordwrap removed from MMCC menu (was not implimented)
+MMCC Tab spacing fixed.
+
+
+21 Dec 2022
+V5.0.3
+File manager was timing out with long file lists - fixed
+Some file operations now more informative
+picomiteVGA now separate to picomite
+
+18 Dec 2022
+Remembers cursor etc better for numerous operations.
+Support for picomite flash drive added.
+
+5 Dec 2022
+Fixed bug in remove non-ASCII routines.
+Improved performance of file listing and transfers.
+Improved restoring windows that have been minimised
+Fixed bug in File Manager when connected to CMM2
+
+13 Nov
+Fixed numerous bugs with selecting syntax
+Fixed crash with syntax help (F1)
+Fixed Help toolbar icon action.
+Fixed tab selection bug after deleting tab 
+
+11 Nov 2022
+Fixed bug in 'Insert file'
+Reworked External Program settings to fix starting folder bug.
+
+31 Oct 2022
+Improved file transfer progress indicators in MMCC
+Improved mutiple file selection in file manager and Linux
+Addressed IMA issue in Linux version of MMCC
+Added 'confirm delete' in file manager
+Fixed double CR in terminal and Linux
+Improved 'abort' process in file manager
+
+20 Oct 2022
+MMCC, added command to send the cursor to end of terminal window (also occurs before "RUN")
+MMCC, when last used device is TCPIP, displayed settings on restart were inconsistent - fixed.
+Editor, accidental ofer writing of selected word during F1 (help) fixed.
+Editor, failing to delete selected text when enter pressed - fixed.
+
+08 Oct 2022
+Find now has find previous option.
+MMCC file transfer progress now in popup messagebox.
+!%$ added to valid word characters.
+
+05 Oct 2022
+User subs and functions now colour-coded.
+Cosmetic improvements.
+
+01 Oct 2022
+Syntax help now shows the hint in the status bar in Windows. This was the default for Linux.
+The help hint stays visible until the cursor is moved to a different line.
+Go to line_sub_function now brings cursor line into view when code folding is in use.
+Option to start file selector with *.* instead of *.bas ( Misc preferences, File selector = 1)
+
+28 Sep 2022
+Improvements to transfering current program to PC and/or MMEdit 
+Cosmetic improvements
+
+15 Sep 2022
+Linux printing working at last
+
+12 Sep 2022
+Added Timestamping option to MMCC (in setup menu)
+Stopped default user folder from changing when automatically opening this file.
+Added menu item to create backups of both inf files. It only backs up files as they were when last saved on exit.
+
+10 Sep 2022
+Fixed bugs in Linux version relating to 'print' 'save as RTF' and 'save keyword case'
+(More work needed before Linux can print as it should - working on it)
+Added line ending selection for received data in MMCC terminal
+(This fixes bug with picomite editor in colour mode.)
+Increased allowable size of new file intro text to 50 lines
+
+8 Sep 2022
+Changed command file requirements. If using drag&drop, the file extension must be 'mmc'
+(More info in the help under 'the first line'. It will get it's own page soon.)
+Changed file uploading to use threads. No faster but the Windows don't freeze during uploads.
+No longer require device connected when starting file manager but device specifications still need to be correct.
+Bug with file manager and cmm2 fixed.
+
+2 Sep 2022
+Added \D and \H to the macros for UTC date and time. \d and \h are still local time.
+Found where the pesky right-click popup menu in MMCC terminal was hiding.
+Cosmetic improvements when selecting 'favorite' devices in MMCC
+
+31 Aug 2022
+Fixed bug with format code where last line did not have lineending.
+Changed AUTOSAVE upload timing to better allow for slow devices.
+Fixed bug in MMCC macros
+
+22 Aug 2022
+Banished another bug which caused garbage to appear at the end of some files when loaded into the editor.
+Improved VT terminal handling of chr(0). You have the option of creating it as space or nul.
+
+21 Aug 2022
+MMEdit crunch now leaves lines starting with # intact.
+Restored code folding which was lost when code completion was introduced.
+Bug sending some empty lines during upload fixed. Unknown when that started!
+
+17 Aug 2022
+After search, cursor stays at last "find". Option in inf file to return cursor to where it was at start of search.
+Removed ghost cursor from MMCC in white background mode.
+Added a new txt.tkn file for files that get displayed with minimal keyword formatting.
+Fixed syntax quick help in Linux versions. Shows in status line rather than pop-up.
+Improved handling of syntax changes between open tabs.
+changes.txt file opens in editor after a program update once only. It can still be opened from Help/Changes.
+
+16 Aug 2022
+You are now prompted for a nickname if the relevant box is vacant when saving connection settings in MMCC.
+You are now warned if you attempt to connect when the specifications in MMCC are blank.
+Settings text-boxes in MMCC Linux versions now white.
+Bug preventing easy setting of device specs fixed.
+Default comment colour changed to $707070. existing users will have to change it in preferences if desired.
+Changed device family list in MMCC to respect inf file (removes VGAmite)
+
+15 Aug 2022
+Changes to the Linux version to fix a scrolling bug. Now the syntax short help (F1) doesn't work. I have a workaround but not finished yet.
+The changes to the Linux versions might require some libraries downloaded.
+There is an 'install.txt' file in the archive explaining the requirements.
+There are also some desktop config files so you can have desktop shortcuts with icons if desired.
+The text which appears in 'new' files can be edited and saved more easily.
+No excuse for not starting every file with OPTION EXPLICIT and OPTION DEFAULT xxx
+
+Save for TBS' now saves mono and in [ code ] tags.
+There is still a save for TBS in colour option.
+
+The editor now has autocomplete for keywords. Saves lots of spelling mistakes.
+Type the first 3 characters and a list appears. Select the item with up/down arrows or mouse click. TAB or double click to paste the selection.
+
+6 Aug 2022
+MMCC has a new tickbox "override"
+If that is ticked, any 'target in the source file will be ignored and the manual settings used.
+
+If you are using 'target xxx as the first line of the code, you can now prefix the 'target with any comment such as file name
+eg:
+dim demo 'target port\COM6:115200 s\picomite
+Note that you need the ' before target.
+
+If you manually change the connection settings in MMCC and the port is connected, you get a warning.
+If you try and connect to a different port than any current connection either manually or through 'target directives, the current connection will be dropped first.
+
+You now have an option to use spaces instead of hard tabs.
+This works when typing in text.
+If you paste text that has tab characters or open a file with tabs, you will have to "format" the code to convert the tabs to spaces. The option setting is only in the inf file for now as I don't expect you to keep changing it.
+
+Other fixes include
+Save to RTF fixed.
+In syntax highlighting, the \ is now recognized.
